@@ -9,7 +9,7 @@ function Movie({ year, title, summary, poster, genres }) {
       <div className="movie__date">
         <h3 className="movie__title">{title}</h3>
         <h5 className="movie__year">{year}</h5>
-        <ul className="genres">
+        <ul className="movie__genres">
           {genres.map((genre, index) => (
             <li key={index} className="genres__genre">
               {genre}
@@ -25,7 +25,6 @@ function Movie({ year, title, summary, poster, genres }) {
 // props 타입 정의
 // propsTypes는 number, string, bool, func, node등 다양하게 존재한다.
 Movie.propTypes = {
-  id: PropTypes.number.isRequired,
   year: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
