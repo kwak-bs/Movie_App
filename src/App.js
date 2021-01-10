@@ -34,31 +34,27 @@ class App extends React.Component {
     const { isLoading, movies } = this.state;
     return (
       <section className="container">
-        {isLoading
-          ? (
-            <div className="loader">
-              <span className="loader__text">
-                Loading...
-              </span>
-            </div>
-          )
-          : (
-            <div className="movies">
-              {movies.map((movie) => (
-                  <Movie
-                    key={movie.id}
-                    id={movie.id}
-                    year={movie.year}
-                    title={movie.title}
-                    summary={movie.summary}
-                    poster={movie.medium_cover_image}
-                  />
-                  // 위와 같이 object를 풀어줄 때 map함수를 사용하고, 또
-                  // jsx에서는 props를 통해서 값을 전달한다.
-                  // key는 표현되지 않지만 필수 props이다.
-                ))}
-            </div>
-          )}
+        {isLoading ? (
+          <div className="loader">
+            <span className="loader__text">Loading...</span>
+          </div>
+        ) : (
+          <div className="movies">
+            {movies.map((movie) => (
+              <Movie
+                key={movie.id}
+                year={movie.year}
+                title={movie.title}
+                summary={movie.summary}
+                poster={movie.medium_cover_image}
+                genres={movie.genres}
+              />
+              // 위와 같이 object를 풀어줄 때 map함수를 사용하고, 또
+              // jsx에서는 props를 통해서 값을 전달한다.
+              // key는 표현되지 않지만 필수 props이다.
+            ))}
+          </div>
+        )}
       </section>
     );
   }
