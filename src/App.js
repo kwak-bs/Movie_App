@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Movie from "./Movie";
 
 class App extends React.Component {
   state = {
@@ -14,7 +15,7 @@ class App extends React.Component {
         data: { movies },
       },
     } = await axios.get(
-      "https://yts-proxy.nomadcoders1.now.sh/list_movies.json"
+      "https://yts-proxy.nomadcoders1.now.sh/list_movies.json?sort_by=rating"
     );
     // API로 받아온 movies가 잘 출력됨.
     console.log(movies);
@@ -29,8 +30,26 @@ class App extends React.Component {
   }
 
   render() {
-    const { isLoading } = this.state;
-    return <div>{isLoading ? "Loading..." : "we are ready"}</div>;
+    const { isLoading, movies } = this.state;
+    return (
+      <div>
+        {isLoading
+          ? "Loading..."
+          : movies.map((movie) => (
+              <Movie
+                key={movie.id}
+                id={movie.id}
+                year={movie.year}
+                title={movie.title}
+                summary={movie.summary}
+                poster={movie.medium_cover_image}
+              />
+              // 위와 같이 object를 풀어줄 때 map함수를 사용하고, 또
+              // jsx에서는 props를 통해서 값을 전달한다.
+              // key는 표현되지 않지만 필수 props이다.
+            ))}
+      </div>
+    );
   }
 }
 export default App;
