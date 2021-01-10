@@ -19,7 +19,7 @@ class Home extends React.Component {
       "https://yts-proxy.nomadcoders1.now.sh/list_movies.json?sort_by=rating"
     );
     // API로 받아온 movies가 잘 출력됨.
-    console.log(movies);
+    //console.log(movies);
 
     // 기존 state에 있는 moives 배열에 Axios로 가져온
     // movies 배열 객체 넣어줌 ({movies : movies})
@@ -42,6 +42,7 @@ class Home extends React.Component {
           <div className="movies">
             {movies.map((movie) => (
               <Movie
+                id={movie.id}
                 key={movie.id}
                 year={movie.year}
                 title={movie.title}
