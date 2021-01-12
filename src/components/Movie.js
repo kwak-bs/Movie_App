@@ -29,7 +29,7 @@ function Movie({ id, year, title, summary, poster, genres }) {
               </li>
             ))}
           </ul>
-          <p className="movie__summary">{summary.slice(0, 180)}...</p>
+          <p className="movie__summary">{summary.length > 180 ? `${summary.slice(0, 180)}...` : summary}</p>
         </div>
       </Link>
     </div>
