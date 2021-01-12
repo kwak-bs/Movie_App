@@ -7,6 +7,7 @@ React.js로 만든 Movie App 토이 프로젝트 (노마드 코더 클론 코딩
 
 - MovieList
 - MovieDetail
+- Navigation
 
 ## 스택
 
