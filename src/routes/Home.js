@@ -26,6 +26,7 @@ class Home extends React.Component {
     this.setState({ movies, isLoading: false });
   };
 
+  // render 호출 후
   componentDidMount() {
     this.getMovies();
   }
@@ -33,6 +34,7 @@ class Home extends React.Component {
   render() {
     const { isLoading, movies } = this.state;
     return (
+      // section 태그는 내용적 흐름과 구조를 만들기 위해 내용을 나누는 용도.
       <section className="container">
         {isLoading ? (
           <div className="loader">
