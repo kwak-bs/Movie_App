@@ -1,7 +1,7 @@
 import React from "react";
 import { HashRouter, Route } from "react-router-dom";
 import About from "./routes/About";
-import Detail from "./routes/Detail";
+import Detail from "./routes/Detail.jsx";
 import Navigation from "./components/Navigation";
 import Home from "./routes/Home.jsx";
 
