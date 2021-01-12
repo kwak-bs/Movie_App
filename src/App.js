@@ -1,9 +1,9 @@
 import React from "react";
 import { HashRouter, Route } from "react-router-dom";
-import Home from "./routes/Home";
 import About from "./routes/About";
 import Detail from "./routes/Detail";
 import Navigation from "./components/Navigation";
+import Home from "./routes/Home.jsx";
 
 //네비게이션은 라우터 안에 위치하고 있어야됨
 // HashRouter가 github page에 좀 더 잘 연동됨.
