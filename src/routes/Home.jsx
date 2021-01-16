@@ -1,31 +1,14 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useContext } from "react";
+
 import Movie from "../components/Movie";
 import "./Home.css";
+import Context from "../movieProvider";
 
 const Home = () => {
-  const [isLoading, setIsloading] = useState(true);
-  const [movies, setMovie] = useState([]);
-
-  // componentDidmount, componentDidupdate시 실행
-  useEffect(() => {
-    async function fetchMyAPI() {
-      // data - data - movies에 접근 (변수도 movies로 접근 하면 잘 출력됨)
-      const {
-        data: {
-          data: { movies },
-        },
-      } = await axios.get(
-        "https://yts-proxy.nomadcoders1.now.sh/list_movies.json?sort_by=rating"
-      );
-      // API로 받아온 movies가 잘 출력됨.
-      //console.log(movies);
-      setIsloading(false);
-      setMovie(movies);
-    }
-    fetchMyAPI();
-  }, [movies]);
-
+  const { state } = useContext(Context);
+  //console.log(state);
+  const { isLoading, movies } = state;
+  //console.log(movies);
   return (
     // section 태그는 내용적 흐름과 구조를 만들기 위해 내용을 나누는 용도.
     <section className="container">
